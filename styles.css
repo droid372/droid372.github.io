@@ -1,0 +1,166 @@
+  /* ==== ESTILOS GENERALES ==== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #9bd2ff 0%, #b8e0ff 100%);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* ==== CONTENEDOR PRINCIPAL ==== */
+.container {
+  text-align: center;
+  padding: 0;
+  width: 95%;
+  max-width: 480px;
+  position: relative;
+  margin-top: -10px;
+  z-index: 2;
+}
+
+.titulo {
+  font-family: 'Playfair Display', serif; /* Nueva fuente estilo “Juana” */
+  font-size: 2rem;
+  color: #000; /* Negro */
+  font-weight: 700; /* Gruesa */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Efecto tipo 3D suave */
+  margin-bottom: 10px;
+  letter-spacing: 1px; /* Espaciado sutil entre letras */
+}
+.anio {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #000;
+  margin-top: -5px;
+  margin-bottom: 15px;
+}
+
+
+
+/* ==== FOTO ==== */
+.foto-container {
+  position: relative;
+  display: flex;              /* 🔹 ahora usa flexbox */
+  justify-content: center;    /* 🔹 centra horizontalmente */
+  flex-direction: column;
+  align-items: center;        /* 🔹 asegura que todo esté alineado */
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 0 auto;             /* 🔹 mantiene centrado */
+  text-align: center;
+}
+
+.foto {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  max-width: 360px;           /* 🔹 limita el tamaño en PC */
+  display: block;
+}
+
+/* ==== IMAGEN DECORATIVA ==== */
+.birretes {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/* ==== GLOBOS ==== */
+#contenedor-globos {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 3; /* 🔹 Globos por encima */
+}
+
+.globo {
+  position: absolute;
+  bottom: 0;
+  border-radius: 50% 50% 45% 45%;
+  opacity: 0.9;
+  animation: subir linear forwards;
+}
+
+.globo::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 1.5px;
+  height: 10px;
+  background: #555;
+  transform: translateX(-50%);
+}
+
+@keyframes subir {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+/* ==== RESPONSIVE MÓVIL ==== */
+@media (max-width: 480px) {
+  .titulo {
+    font-size: 1.6rem;
+  }
+
+  body {
+    align-items: flex-start;
+    padding-top: 10px;
+  }
+
+  .container {
+    margin-top: 0;
+  }
+
+  .foto {
+    max-width: 100%;
+  }
+}
+
+/* ==== RESPONSIVE PC ==== */
+@media (min-width: 768px) {
+  body {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 40px;
+  }
+
+  .container {
+    max-width: 650px;
+  }
+
+  .titulo {
+    font-size: 2.5rem;
+  }
+
+  .foto-container {
+    align-items: center;     /* 🔹 asegura centrado vertical y horizontal */
+  }
+
+  .foto {
+    max-width: 380px;        /* 🔹 centrado y tamaño equilibrado */
+  }
+
+  .birretes {
+    max-width: 600px;
+  }
+}

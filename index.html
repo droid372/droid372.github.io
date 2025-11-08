@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pre Promoción</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1 class="titulo">PRE PROMOCIÓN</h1>
+    <h4 class="anio">2022 - 2026</h4>
+
+    <div class="foto-container">
+      <img src="img/alum.jpeg" alt="Foto de grupo" class="foto">
+      <div class="marco"></div>
+      <p>¡Nunca te rindas! El fracaso y el rechazo son solo el primer escalón hacia el éxito.</p>
+    </div>
+
+    <img src="img/labarte-removebg-preview.svg" alt="Decoración de birretes" class="birretes">
+  </div>
+
+  <!-- Contenedor de globos -->
+  <div id="contenedor-globos"></div>
+
+  <script>
+    const colores = ["#ff4d4d", "#ffcc00", "#66ff66", "#66b3ff", "#ff66b2", "#ffa366", "#cc99ff"];
+    const contenedor = document.getElementById("contenedor-globos");
+
+    function crearGlobo() {
+      const globo = document.createElement("div");
+      globo.classList.add("globo");
+
+      // Color aleatorio
+      globo.style.background = colores[Math.floor(Math.random() * colores.length)];
+
+      // Posición horizontal aleatoria
+      globo.style.left = Math.random() * window.innerWidth + "px";
+
+      // Tamaño aleatorio (ideal para móvil)
+      const tamaño = 15 + Math.random() * 20;
+      globo.style.width = tamaño + "px";
+      globo.style.height = tamaño * 1.3 + "px";
+
+      // Duración aleatoria
+      const duracion = 5 + Math.random() * 4;
+      globo.style.animationDuration = duracion + "s";
+
+      contenedor.appendChild(globo);
+
+      // Eliminar después de la animación
+      setTimeout(() => globo.remove(), duracion * 1000 + 500);
+    }
+
+    // Crear globos constantemente
+    setInterval(crearGlobo, 300);
+  </script>
+
+</body>
+</html>
+
